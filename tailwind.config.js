@@ -1,3 +1,5 @@
+// import tailwindScrollbar from "tailwind-scrollbar";
+const tailwindScrollbar = require("tailwind-scrollbar");
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
@@ -7,9 +9,17 @@ module.exports = withMT({
     "./src/**/*.css", // Quét file CSS trong src
   ],
   theme: {
-    extend: {}, // Dùng để mở rộng giao diện nếu cần
+    extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui"],
+      },
+      colors: {
+        zinc: require("tailwindcss/colors").zinc,
+      },
+    }, // Dùng để mở rộng giao diện nếu cần
   },
   plugins: [
-    require("@tailwindcss/forms"), // Plugin hỗ trợ form
+    require("@tailwindcss/forms"),
+    tailwindScrollbar, // Plugin hỗ trợ form
   ],
 });
